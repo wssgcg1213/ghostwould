@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  {{! Document Settings }}
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  {{! Page Meta }}
+    <title>{{meta_title}}</title>
+
+    <meta name="title" content="{{meta_title}}">
+    <meta name="description" content="{{meta_description}}">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <link rel="shortcut icon" href="{{asset 'favicon.ico'}}">
+  {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="{{asset '/css/style.min.css'}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset '/css/hljs.min.css'}}"/>
+    <script type="text/javascript" src="{{asset 'js/sea.js'}}"></script>
+    <!--[if lte IE 8]>
+    <script">
+      alert("为了你的浏览体验，请升级您的IE或者使用其他现代浏览器。\n");
+      location.href = "http://baidu.com/s?wd=chrome";
+    </script>
+    <![endif]-->
+  {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+<div id="nprogress">
+    <div class="bar" role="bar">
+        <div class="peg"></div>
+    </div>
+    <div class="spinner" role="spinner">
+        <div class="spinner-icon"></div>
+    </div>
+</div>
+{{{body}}}
+</body>
+</html>

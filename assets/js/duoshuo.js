@@ -1,0 +1,1 @@
+"use strict";define(function(e,t){window.duoshuoQuery={short_name:"zeroling"};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="/assets/js/duoshuo.embed.js",s.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(s)});

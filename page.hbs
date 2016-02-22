@@ -1,0 +1,146 @@
+{{!< default}}
+<div id="container">
+
+    <nav class="top-bar">
+        <div class="top-wrap">
+            <div class="nav-url">
+                <ul>
+                    <li><a href="/">主页</a></li>
+                    <li><a href="/about">碎碎念</a></li>
+                    <li><a href="https://resume.zeroling.com">简历</a></li>
+                    <!--<li><a href="/rss">RSS</a></li>-->
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="search-form-input" placeholder="Search">
+                <div class="search-bar-result">
+                    <div class="quick-search"></div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+  {{! This is a page template. A page outputs content just like any other post, and has all the same
+      attributes by default, but you can also customise it to behave differently if you prefer. }}
+
+
+
+
+
+  {{#post}}
+
+      <header class="banner">
+          <div class="banner-mask"
+               style="background-image:url(https://dn-redrock.qbox.me/pics/php-code.jpg);background-size:cover;"></div>
+          <div class="site-head-content inner">
+              <a class="home-blog-title" href="{{@blog.url}}"
+                 style="color: rgba(255, 255, 255, 0.8);">{{@blog.title}}</a>
+            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}"
+                                                                             alt="Blog Logo"/></a>{{/if}}
+              <h2 class="blog-description" style="color: rgba(255, 255, 255, 0.8);">{{{title}}}</h2>
+              <div class="social-account">
+                  <ul>
+                      <li>
+                          <a href="http://weibo.com/ilclme" target="_blank"><i class="iconfont icon-weibo-pure">
+                              &#xe61c;</i></a>
+                          <a href="https://twitter.com/wssgcg1213" target="_blank"><i
+                                  class="iconfont icon-twitter-pure">&#xf000e;</i></a>
+                          <a href="https://github.com/wssgcg1213" target="_blank"><i class="iconfont icon-github-pure">
+                              &#xe611;</i></a>
+                          <a href="http://instagram.com/wssgcg1213" target="_blank"><i
+                                  class="iconfont icon-instagram-pure">&#xe613;</i></a>
+                        {{!--  <a href=""><i class="iconfont icon-weixin-pure">&#x343b;</i></a> --}}
+                          <a href="{{@blog.url}}/rss/"><i class="iconfont icon-feed">&#xe751;</i></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+      </header>
+
+  <main class="content single-post" role="main">
+  <article class="{{post_class}}">
+      <section class="post-content">
+          <div class="single-post-inner">
+            {{content}}
+          </div>
+          <section class="share">
+              <h4>分享一下</h4>
+              <div class="share-icons">
+                  <a class="icon-share"
+                     href="http://service.weibo.com/share/share.php?url={{url absolute="true"}}&title={{encode title}}"
+                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                      <span class=""><i class="iconfont icon-weibo">&#x3432;</i></span>
+                  </a>
+
+                  <a class="icon-share"
+                     href=" http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?desc={{encode title}}&url={{url absolute="true"}}"
+                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                      <span class=""><i class="iconfont icon-qzone">&#xe60d;</i></span>
+                  </a>
+                  <a class="icon-share"
+                     href="http://twitter.com/share?text={{encode title}}&url={{url absolute="true"}}"
+                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                      <span class=""><i class="iconfont  icon-twitter">&#xe763;</i></span>
+                  </a>
+                  <a class="icon-share" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                      <span class=""><i class="iconfont  icon-facebook">&#x3433;</i></span>
+                  </a>
+                  <a class="icon-share icon-weibo" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                      <span class=""><i class="iconfont  icon-weixin">&#x3436;</i></span>
+                  </a>
+              </div>
+          </section>
+
+      </section>
+
+      <section class="comment-area">
+          <div class="ds-thread" data-show-avatars="0"></div>
+      </section>
+
+      <footer class="post-footer"></footer>
+
+  {{/post}}
+
+</article>
+
+</main>
+    <i href="/" class="to-home" title="back home">↑</i>
+    <i href="##" id="to-top" title="Go To Top!">↑</i>
+    <footer class="site-footer">
+        <div class="feed-sub">
+            <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">{{!-- 订阅 --}}</span></a>
+            <i class="iconfont icon-feed">&#xe751;</i>
+        </div>
+        <div class="inner">
+            <section>浙ICP备15044985号</section>
+            <section class="copyright"><a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull;
+                All rights reserved.
+            </section>
+            <section class="poweredby">Based On <a class="icon-ghost" href="http://ghost.org">Ghost @ Node</a> theme by
+                <a href="https://github.com/foru17/ghostwill">luolei</a></section>
+            <section>
+                <a href="http://ricter.me" rel="nofollow">Ricter</a> /
+                <a href="http://rickgray.me/" rel="nofollow">RickGray</a> /
+                <a href="http://blog.andycall.net" rel="nofollow">AndyCall</a> /
+                <a href="http://old.zeroling.com">My Old Blog</a> /
+                <a href="Http://gp.zeroling.com">The Good Parts</a>
+            </section>
+        </div>
+    </footer>
+</div><!-- end container -->
+<script type="text/javascript">
+    seajs.config({
+        base: '/assets/js/',
+        preload: 'global'
+    });
+    seajs.use('global', function (g) {
+        g.hijackLinks();
+    });
+    seajs.use(["ghostbot", "page"]);
+
+</script>

@@ -1,0 +1,116 @@
+{{!< default}}
+<div id="container">
+    <div class="fixed-body-background"></div>
+    <nav class="top-bar">
+        <div class="top-wrap">
+            <div class="nav-url">
+                <ul>
+                    <li><a href="/">主页</a></li>
+                    <li><a href="/about">碎碎念</a></li>
+                    <li><a href="https://resume.zeroling.com">简历</a></li>
+                    <!--<li><a href="/rss">RSS</a></li>-->
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="search-form-input" placeholder="Search">
+                <div class="search-bar-result">
+                    <div class="quick-search"></div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <header class="banner">
+        <div class="banner-mask"></div>
+        <div class="site-head-content inner">
+            <a class="home-blog-title" href="{{@blog.url}}">{{@blog.title}}</a>
+          {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}"
+                                                                           alt="Blog Logo"/></a>{{/if}}
+            <h2 class="blog-description">{{@blog.description}}</h2>
+            <div class="social-account">
+                <ul>
+                    <li>
+                        <a href="http://weibo.com/ilclme" target="_blank"><i class="iconfont icon-weibo-pure">
+                            &#xe61c;</i></a>
+                        <a href="https://twitter.com/wssgcg1213" target="_blank"><i class="iconfont icon-twitter-pure">
+                            &#xf000e;</i></a>
+                        <a href="https://github.com/wssgcg1213" target="_blank"><i class="iconfont icon-github-pure">
+                            &#xe611;</i></a>
+                        <a href="http://instagram.com/wssgcg1213" target="_blank"><i
+                                class="iconfont icon-instagram-pure">&#xe613;</i></a>
+                      {{!--  <a href=""><i class="iconfont icon-weixin-pure">&#x343b;</i></a> --}}
+                        <a href="{{@blog.url}}/rss/"><i class="iconfont icon-feed">&#xe751;</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+  {{! The main content area on the homepage }}
+    <main id="container" class="content homepage" role="main">
+      {{! Each post will be output using this markup }}
+      {{#foreach posts}}
+
+          <article class="post-in-list {{post_class}}">
+              <section class="post-excerpt">
+                  <div class="post-image">
+                      <a href="{{url}}">
+                        {{content words="0"}}
+                      </a>
+                  </div>
+                  <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+                  <div class="excerpt-word hidden">
+                    {{excerpt}}
+                  </div>
+              </section>
+              <div class="post-meta">
+                  <span class="post-time"><time
+                          datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time></span>
+<span class="post-tags">
+  {{tags prefix="" separator=" "}}
+</span>
+              </div>
+            {{!--         <div class="readmore-btn">
+                <a class="btn" href="{{{url}}}" rel="bookmark"></a>
+                    </div> --}}
+          </article>
+
+      {{/foreach}}
+
+      {{!! After all the posts, we have the previous/next pagination links }}
+
+      {{pagination}}
+
+        <i href="##" id="to-top" title="Go To Top!">↑</i>
+        <footer class="site-footer">
+            <div class="feed-sub">
+                <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">{{!-- 订阅 --}}</span></a>
+                <i class="iconfont icon-feed">&#xe751;</i>
+            </div>
+            <div class="inner">
+                <section>浙ICP备15044985号</section>
+                <section class="copyright"><a
+                        href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights
+                    reserved.
+                </section>
+                <section class="poweredby">Based On <a class="icon-ghost" href="http://ghost.org">Ghost @ Node</a> theme
+                    by <a href="https://github.com/foru17/ghostwill">luolei</a></section>
+                <section>
+                    <a href="http://ricter.me" rel="nofollow">Ricter</a> /
+                    <a href="http://rickgray.me/" rel="nofollow">RickGray</a> /
+                    <a href="http://blog.andycall.net" rel="nofollow">AndyCall</a> /
+                    <a href="http://old.zeroling.com">My Old Blog</a> /
+                    <a href="Http://gp.zeroling.com">The Good Parts</a>
+                </section>
+            </div>
+        </footer>
+    </main>
+</div><!-- end container -->
+<script>
+    seajs.config({
+        base: '/assets/js/',
+        preload: 'global'
+    });
+    seajs.use(["ghostbot", "index"]);
+</script>
