@@ -1,5 +1,7 @@
 #GhostWould
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wssgcg1213/ghostwould.svg)](https://greenkeeper.io/)
+
 A ghost theme forked from ghostwill.
 
 ###Gulp Flow 
